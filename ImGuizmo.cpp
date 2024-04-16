@@ -647,12 +647,12 @@ namespace IMGUIZMO_NAMESPACE
       CenterCircleSize           = 6.0f;
 
       // initialize default colors
-      Colors[DIRECTION_X]           = ImVec4(0.8f,  0.1f,  0.15f, 1.000f);
-      Colors[DIRECTION_Y]           = ImVec4(0.2f,  0.7f,  0.2f,  1.000f);
-      Colors[DIRECTION_Z]           = ImVec4(0.1f,  0.25f, 0.8f,  1.000f);
-      Colors[PLANE_X]               = ImVec4(0.8f,  0.1f,  0.15f, 0.380f);
-      Colors[PLANE_Y]               = ImVec4(0.2f,  0.7f,  0.2f,  0.380f);
-      Colors[PLANE_Z]               = ImVec4(0.1f,  0.25f, 0.8f,  0.380f);
+      Colors[DIRECTION_X]           = ImVec4(1.000f, 0.416f, 0.416f, 1.000f);
+      Colors[DIRECTION_Y]           = ImVec4(0.651f, 1.000f, 0.416f, 1.000f);
+      Colors[DIRECTION_Z]           = ImVec4(0.416f, 0.765f, 1.000f, 1.000f);
+      Colors[PLANE_X]               = ImVec4(1.000f, 0.416f, 0.416f, 1.000f);
+      Colors[PLANE_Y]               = ImVec4(0.651f, 1.000f, 0.416f, 1.000f);
+      Colors[PLANE_Z]               = ImVec4(0.416f, 0.765f, 1.000f, 1.000f);
       Colors[SELECTION]             = ImVec4(1.000f, 0.500f, 0.062f, 0.541f);
       Colors[INACTIVE]              = ImVec4(0.600f, 0.600f, 0.600f, 0.600f);
       Colors[TRANSLATION_LINE]      = ImVec4(0.666f, 0.666f, 0.666f, 0.666f);
@@ -1395,10 +1395,6 @@ namespace IMGUIZMO_NAMESPACE
                }
                drawList->AddCircleFilled(worldDirSSpace, gContext.mStyle.ScaleLineCircleSize, colors[i + 1]);
 
-               if (gContext.mAxisFactor[i] < 0.f)
-               {
-                  DrawHatchedAxis(dirAxis * scaleDisplay[i]);
-               }
             }
          }
       }
@@ -1559,11 +1555,6 @@ namespace IMGUIZMO_NAMESPACE
                ImVec2 a(worldDirSSpace + dir);
                drawList->AddTriangleFilled(worldDirSSpace - dir, a + ortogonalDir, a - ortogonalDir, colors[i + 1]);
                // Arrow head end
-
-               if (gContext.mAxisFactor[i] < 0.f)
-               {
-                  DrawHatchedAxis(dirAxis);
-               }
             }
          }
          // draw plane
